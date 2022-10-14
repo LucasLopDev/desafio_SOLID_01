@@ -7,10 +7,18 @@ interface IRequest {
 }
 
 class CreateUserUseCase {
-  constructor(private usersRepository: IUsersRepository) {}
+  // eslint-disable-next-line prettier/prettier
+  constructor(private usersRepository: IUsersRepository) { }
 
-  execute({ email, name }: IRequest): User {
-    // Complete aqui
+  execute({ name, email }: IRequest): User {
+    const userEmailAlreadyExist = this.usersRepository.findByEmail(email);
+
+    if (userEmailAlreadyExist) {
+      throw new Error("Email Already exist!");
+    }
+
+    this.usersRepository.create({ name, email });
+    return this.usersRepository.findByEmail(email);
   }
 }
 

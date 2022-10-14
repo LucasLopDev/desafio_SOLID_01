@@ -32,5 +32,7 @@
     "ts-jest": "^26.5.3",
     "ts-node-dev": "^1.1.6",
     "typescript": "^4.2.2"
-  }
+  },
+  "repository": "https://github.com/LucasLopDev/desafio_SOLID_01.git",
+  "author": "LucasLopDev <lopes0022@gmail.com>"
 }
